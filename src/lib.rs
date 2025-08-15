@@ -11,18 +11,6 @@ pub mod ntt;
 use ntt::domain::Domain;
 use ntt::fields::Field192;
 
-#[pyfunction]
-fn sum_bigints(py_list: &PyList) -> PyResult<PyObject> {
-    let py: Python<'_> = py_list.py();
-    let mut sum = BigInt::zero();
-    for item in py_list.iter() {
-        let value: BigInt = item.extract()?;
-        sum += value;
-    }
-    let l_0 = Domain::<Field192>::new(64, 2).unwrap();
-    Ok(sum.into_py(py))
-}
-
 #[pyfunction(name = "ntt")]
 fn ntt_py(degree: usize, log_rho_inv: usize, poly_coeffs: &PyList) -> PyResult<PyObject> {
     let py = poly_coeffs.py();
@@ -59,7 +47,6 @@ fn ntt_py(degree: usize, log_rho_inv: usize, poly_coeffs: &PyList) -> PyResult<P
 
 #[pymodule]
 fn fast_ntt_pyo3(_py: Python, m: &PyModule) -> PyResult<()> {
-    m.add_function(wrap_pyfunction!(sum_bigints, m)?)?;
     m.add_function(wrap_pyfunction!(ntt_py, m)?)?;
 
     Ok(())
