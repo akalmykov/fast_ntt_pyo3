@@ -21,9 +21,12 @@ Rust-native implementation using [arkworks](https://arkworks.rs/) for Number The
    maturin develop
    ```
 4. Run test:
+
    ```sh
    python test.py
    ```
+
+   Before running tests, un-archive test data in `test` directory.
 
 ## Usage
 
