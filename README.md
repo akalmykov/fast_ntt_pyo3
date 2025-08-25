@@ -74,14 +74,14 @@ Performance comparison between this Rust implementation (via PyO3/arkworks) and 
 
 | **Degree** | **Galois GF init (ms)** | **PyO3 NTT (ms)** | **Galois NTT (ms)** | **Speedup** |
 | ---------- | ----------------------- | ----------------- | ------------------- | ----------- |
-| 2^10       | 14,471 ± 777            | 2.15 ± 0.23       | 338.57 ± 26.8       | **157.4×**  |
-| 2^20       | 14,652 ± 1,403          | 3,785 ± 356       | 625,201 ± 75,550    | **165.2×**  |
+| 2^10       | 14,471 ± 777            | 21.5 ± 0.23       | 338.57 ± 26.8       | **15.4×**   |
+| 2^20       | 14,652 ± 1,403          | 37.85 ± 356       | 625,201 ± 75,550    | **16.5×**   |
 
 _Table: NTT performance comparison between Rust `pyo3` (arkworks) and Python `galois` over a 192-bit field. Times are mean ± std. deviation over 10 runs. Speedup = (Galois NTT time) / (PyO3 NTT time)._
 
 ### Analysis
 
-**Performance Advantage**: Rust-native `arkworks`, executed through PyO3, computes NTTs ~160 times faster than Python's `galois` library. The gap widens in absolute terms with larger degrees: for 2^20, Rust completes in ≈3.8s vs Python's ≈625s, making Python's version virtually unusable for large polynomials.
+**Performance Advantage**: Rust-native `arkworks`, executed through PyO3, computes NTTs ~16 times faster than Python's `galois` library. The gap widens in absolute terms with larger degrees: for 2^20, Rust completes in ≈38s vs Python's ≈625s, making Python's version virtually unusable for large polynomials.
 
 **Why `galois` is slow**: The main performance bottleneck in `galois` lies in its inability to use JIT-compiled ufuncs for large finite fields:
 

@@ -48,7 +48,7 @@ def test_ntt(poly_coeffs_file, evals_file, poly_degree, log_rho_inv):
 
 
 if __name__ == "__main__":
-    test_ntt("./test/poly_coeffs_2pow10.json", "./test/evals_2pow10.json", 1024, 2)
-    # test_ntt("./test/poly_coeffs_2pow20.json", "./test/evals_2pow20.json", 2**20, 2)
+    # test_ntt("./test/poly_coeffs_2pow10.json", "./test/evals_2pow10.json", 1024, 2)
+    test_ntt("./test/poly_coeffs_2pow20.json", "./test/evals_2pow20.json", 2**20, 2)
 
     print("All tests passed")
