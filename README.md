@@ -27,11 +27,12 @@ Rust-native implementation using [arkworks](https://arkworks.rs/) for Number The
    ```
 
    Before running tests, un-archive test data in `test` directory.
-   ``sh
+   
+   ```sh
    cat evals_2pow20.json.tar.gz.\* | tar -xzf -
    tar -xzf \*.tar.gz
 
-``
+```
 
 ## Usage
 
