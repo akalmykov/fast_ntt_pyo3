@@ -1,6 +1,6 @@
 # fast_ntt_pyo3
 
-A Python extension module written in Rust using [PyO3](https://pyo3.rs/) and [num-bigint](https://docs.rs/num-bigint/) to perform NTT efficiently over large fields. Developed as a replacement for Python's Galois library.
+A Python extension module written in Rust using [PyO3](https://pyo3.rs/) and [arkworks](https://arkworks.rs/) to perform NTT efficiently over large fields. Developed as a replacement for Python's Galois library.
 
 ## Features
 
